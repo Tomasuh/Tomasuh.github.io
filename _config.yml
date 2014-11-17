@@ -1,7 +1,8 @@
 name: Tomsonsec
 markdown: Kramdown
 highlighter: pygments
-url: http://0.0.0.0:4000/ #domain
+#url: http://0.0.0.0:4000/ #domain
+url: http://tomasuh.github.io/
 paginate: 8
 description:     Jekyll theme for Programmers
 intro:	Security oriented blog
