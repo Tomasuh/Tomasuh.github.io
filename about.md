@@ -2,7 +2,7 @@
 layout: default
 title: Axel Olsson
 ---
-<img src="images/more.png" alt="alt text" width="25%" height="25%" align="right" valign="top">
+<img src="images/meAndDonkey.png" alt="alt text" width="25%" height="25%" align="right" valign="top">
 <br/>
 Names Axel and I’m a security interested student living in Gothenburg, Sweden and currently studying Computer science at University of Gothenburg.
 
