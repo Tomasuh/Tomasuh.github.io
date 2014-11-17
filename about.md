@@ -2,7 +2,8 @@
 layout: default
 title: Axel Olsson
 ---
-
+<img src="images/more.png" alt="alt text" width="25%" height="25%" align="right" valign="top">
+<br/>
 Names Axel and I’m a security interested student living in Gothenburg, Sweden and currently studying Computer science at University of Gothenburg.
 
 I'm trying to further my knowledge of analysing compiled code in the manner of analyzing malware, write exploits, reading code and writing shellcode et cetera.
@@ -12,5 +13,4 @@ In this blog I will post good to have scripts, exploits I find and lots of other
 If you have anything to comment, ask or point out please contact me at tomasuh[at]tomsonsec.com
 
 
-<img src="http://tomasuh.github.io/images/meAndDonkey.jpg" alt="alt text" style="width:100;height:100">
 
