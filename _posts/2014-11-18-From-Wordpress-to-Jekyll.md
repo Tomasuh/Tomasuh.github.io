@@ -8,4 +8,4 @@ categories:
 
 I've finally taken the step from Wordpress till Jekyll, having it hosted on [Github](https://github.com/Tomasuh/Tomasuh.github.io). Works great, though in the future weeks the page may be a bit messy at times having me setting it all up.
 
-Never used Jekyll? Give it a try, as the page are all static there's almost no security concerns for me, in compare with Wordpress quite often receiving critical updates to the core and plugins.
+Never used Jekyll? Give it a try, as the page are all static there's almost no security concerns, in compare with Wordpress quite often receiving critical updates to the core and plugins.
