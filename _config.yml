@@ -4,8 +4,8 @@ highlighter: pygments
 #url: http://0.0.0.0:4000/ #domain
 url: http://tomasuh.github.io/
 paginate: 8
-description:     Jekyll theme for Programmers
-intro:	Security oriented blog
+description:     Tomsonsec 
+intro:	Computer security and more#Security oriented blog
 logo:             logo.png
 disqus_shortname:
 # url: http://gotchacode.com
