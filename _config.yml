@@ -5,7 +5,7 @@ highlighter: pygments
 url: http://tomasuh.github.io/
 paginate: 8
 description:     Tomsonsec 
-intro:	Computer security and more#Security oriented blog
+intro:	Security oriented blog
 logo:             logo.png
 disqus_shortname:
 # url: http://gotchacode.com
