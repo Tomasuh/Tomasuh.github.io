@@ -13,7 +13,8 @@ With it removed it’s just a simple .tar.gz file!
 I’ve made a python script with support for both download the whole database and update it.
 Though it may look a bit messy it works flawlessy, if you use it correct ;) Give a comment with error messages if it fails.
 
-```python
+{% highlight python linenos %}
+
 #Clamav database fetcher and unpacker.
 #Made by Tomasuh/Axel Olsson at tomsonsec.com
 #For contact: tomasuh [at] tomsonsec.com
@@ -142,5 +143,5 @@ class ClamAvDatabase(object):
         shutil.rmtree(directory,True)
  
 test = ClamAvDatabase()
-```
+{% endhighlight %}
 
