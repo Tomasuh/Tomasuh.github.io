@@ -1,5 +1,6 @@
 name: Tomsonsec
-markdown: Kramdown
+#markdown: Kramdown
+markdown: Redcarpet
 highlighter: pygments
 #url: http://0.0.0.0:4000/ #domain
 url: http://tomasuh.github.io/
