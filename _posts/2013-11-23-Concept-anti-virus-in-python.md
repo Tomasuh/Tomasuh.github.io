@@ -5,6 +5,8 @@ date: 2013-11-23
 comments: true
 categories:
 ---
+Concept anti-virus in python
+==================
 
 So writing an anti-virus in python, good idea? For performance, no, but for the fun and learning more about identifying malware sure!
 
