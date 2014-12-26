@@ -13,7 +13,7 @@ In this blog I will post good to have scripts, exploits I find and lots of other
 If you have anything to comment, ask or point out please contact me at tomasuh[at]tomsonsec.com
 
 
-Here is an archive from my last blog:
+Here are archived blog posts from my last page:
 
 * [Archbang default Openbox rc.xml](files/archive/Archbang_default_Openbox_rc.xml.html)
 * [Brute forcing SeeQ http botnet encryption](files/archive/Brute forcing SeeQ http botnet encryption.html)
