@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bandit | a wargame @ overthewire.org -  solutions level 0-23"
-date: 2014-12-26
+date: 2014-12-29
 comments: true
 categories:
 ---
