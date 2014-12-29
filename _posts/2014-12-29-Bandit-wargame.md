@@ -7,7 +7,7 @@ categories:
 ---
 This post is more of a self note of my progress in the [Bandit wargame](http://overthewire.org/wargames/bandit/).
 
-It's an not all to advance wargame that offers a really good recap in usage common tools in linux.
+It's an not all to advanced wargame that offers a really good recap in usage common tools in linux.
 Some levels I'll only saved the passwords because of the solutions being too trivial, others the solution are included.
 If you want a good walkthrough there are much better posts, for example:
 
