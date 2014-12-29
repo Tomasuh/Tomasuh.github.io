@@ -1,3 +1,9 @@
+Tomsonsec - a security blog
+============
+My blog portal, with theme made by [vinitkumar](https://github.com/vinitkumar/)
+
+Default readme:
+
 White Paper
 ============
 
