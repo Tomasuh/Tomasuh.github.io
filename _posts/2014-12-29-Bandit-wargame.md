@@ -18,40 +18,40 @@ If you want a good walkthrough there are much better posts, for example:
 My solutions:
 
 ```
-level1:
+level 1:
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1
-level2:
+level 2:
 CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
-level3:
+level 3:
 UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
-level4:
+level 4:
 pIwrPrtPN36QITSp3EQaw936yaFoFgAB
-level5:
+level 5:
 koReBOKuIDDepwhWk7jZC0RTdopnAYKh
-level6:
+level 6:
 cat $(find * -size 1033c -type f -readable ! -perm +x)
 DXjZPULLxYr17uwoI01bNLQbtFemEgo7
-level7:
+level 7:
 find / -size 33c -user bandit7 -group bandit6  2> /dev/null
 HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
-level8:
+level 8:
 grep millionth data.txt
 millionth	cvX2JJa4CFALtqS87jk27qwqGhBM9plV
-level9:
+level 9:
 sort -d data.txt | uniq -u
 UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
-level10:
+level 10:
 strings data.txt | grep -e ^=
 ========== password
 ========== ism
 ========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
-level11:
+level 11:
 base64 -d data.txt 
 The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
-level12:
+level 12:
 cat data.txt | tr 'N-Z A-M n-z a-m' 'A-M N-Z a-m n-z'
 The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
-level13:
+level 13:
 xxd -r data.txt > reverted.gz
 
 file reverted.gz
@@ -90,19 +90,19 @@ bandit12@melinda:/tmp/apan$ cat data8
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 
 
-level14:
+level 14:
 bandit13@melinda:~$ ssh -i sshkey.private bandit14@localhost
 Could not create directory '/home/bandit13/.ssh'.
 bandit14@melinda:~$ cat  /etc/bandit_pass/bandit14 
 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 
-level15:
+level 15:
 bandit14@melinda:~$ nc localhost 30000
 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 Correct!
 BfMYroe26WYalil77FoDi9qh59eK5xNr
 
-level16:
+level 16:
 bandit15@melinda:~$ openssl s_client -quiet -connect localhost:30001
 depth=0 CN = li190-250.members.linode.com
 verify error:num=18:self signed certificate
@@ -115,7 +115,7 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
 
 read:errno=0
 
-level17:
+level 17:
 bandit16@melinda:~$ nmap localhost -p 31000-32000 --open
 
 Starting Nmap 6.40 ( http://nmap.org ) at 2014-12-28 16:59 UTC
@@ -217,21 +217,21 @@ Added the private key into a file and chmoded it, 6400 then:
 bandit16@melinda:/tmp/fisk$ ssh -i fisk.private bandit17@localhost
 
 
-bandit17:
+bandit 17:
 bandit17@melinda:~$ grep -Fxvf passwords.old passwords.new
 kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
 Credits: http://stackoverflow.com/a/4079109
 
-bandit18:
+bandit 18:
 bandit17@melinda:~$ ssh bandit18@localhost and press ctr^c in the right time breaking the execution, hackish solution.
 bandit18@melinda:~$ cat readme 
 IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 
-bandit19:
+bandit 19:
 bandit19@melinda:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
 GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 
-bandit20:
+bandit 20:
 bandit20@melinda:~$ echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -l 5000&
 [4] 2824
 bandit20@melinda:~$ ./suconnect 5000                      
@@ -239,7 +239,7 @@ Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 Password matches, sending next password
 gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 
-bandit21:
+bandit 21:
 bandit21@melinda:~$ cat /etc/cron.d/cronjob_bandit22
 * * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
 bandit21@melinda:~$ cat /usr/bin/cronjob_bandit22.sh
@@ -249,7 +249,7 @@ cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 bandit21@melinda:~$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 
-bandit22:
+bandit 22:
 bandit22@melinda:/tmp/fis$ cp /usr/bin/cronjob_bandit23.sh .
 Change file to:
 #!/bin/bash
