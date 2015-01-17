@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Patterny.py | a non-hackish pattern create and offset script"
+title: "Pattern.py | a non-hackish pattern create and offset script"
 date: 2015-01-17
 comments: true
 categories:
