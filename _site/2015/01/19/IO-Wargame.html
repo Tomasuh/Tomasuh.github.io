@@ -7,9 +7,9 @@
 <meta name="keywords" content="">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pattern.py | a non-hackish pattern create and offset script &#8211; ">
+<meta property="og:title" content="IO Wargame &#8211; ">
 <meta property="og:description" content="Tomsonsec">
-<meta property="og:url" content="http://tomasuh.github.io//2015/01/17/Pattern-create-and-offset.html">
+<meta property="og:url" content="http://tomasuh.github.io//2015/01/19/IO-Wargame.html">
 <meta property="og:site_name" content="">
 
 <!-- Webmaster Tools verfication -->
@@ -17,7 +17,7 @@
 
 
 
-<link rel="canonical" href="http://tomasuh.github.io//2015/01/17/Pattern-create-and-offset.html">
+<link rel="canonical" href="http://tomasuh.github.io//2015/01/19/IO-Wargame.html">
 <link href="http://tomasuh.github.io//feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -45,47 +45,49 @@
     <p class="intro">
       Security oriented blog
     </p>
-  <h2>Pattern.py | a non-hackish pattern create and offset script</h2>
-<p class="meta">17 Jan 2015</p>
+  <h2>IO Wargame</h2>
+<p class="meta">19 Jan 2015</p>
 
 <div class="post">
-<p>Want a standalone pattern create or offset lookup script aka pattern_create.rb and pattern_offset.rb in metasploit?
-You&#39;re at the right place!</p>
+<p>Parts of the passwords so I&#39;m not sharing everything!</p>
 
-<p>There are lots of alternative scripts, and mostly the decent ones are integrated in other software, such as:</p>
+<h2>Level01</h2>
 
-<ul>
-<li>  <a href="https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/">mona.py</a></li>
-<li>  <a href="https://github.com/zachriggle/peda">peda</a></li>
-<li>  <a href="http://www.metasploit.com/">metasploit</a></li>
-<li>  <a href="http://www.google.se/">...</a></li>
-</ul>
+<hr>
+<div class="highlight"><pre><code class="language-text" data-lang="text">.text:08048085                 call    puts
+.text:0804808A                 call    fscanf
+.text:0804808F                 cmp     eax, 271
+.text:08048094                 jz      YouWin
+.text:0804809A                 call    exit
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">level1@io:~$ /levels/level01 
+Enter the 3 digit passcode to enter: 271
+Congrats you found it, now read the password for level2 from /home/level2/.pass
+sh-4.2$ cat /home/level2/.pass 
+3ywr07ZFw5IsdKzU
+</code></pre></div>
+<h2>Level02</h2>
 
-<p>There are also standalone scripts made but the ones I&#39;ve come over are either to hackish made, too unclear how they work or the functions offered are simply not enough.</p>
+<hr>
 
-<p>Examples:</p>
+<h2>Level03</h2>
 
-<ul>
-<li>  <a href="https://www.phillips321.co.uk/2013/04/02/recreating-pattern_create-rb-in-python/">Recreating pattern_create.rb in python!</a></li>
-<li>  <a href="https://github.com/eugeneching/exploit-pattern/blob/master/exploitPattern.py">exploitPattern.py</a></li>
-<li>  <a href="https://securitythoughts.wordpress.com/2010/03/18/tool-unique-pattern-generator-for-exploit-development/">Unique Pattern Generator for Exploit Development</a></li>
-<li>  <a href="http://www.google.se/">...</a></li>
-</ul>
+<hr>
 
-<p>So how&#39;s my script better? Up to you.</p>
+<h2>Level04</h2>
 
-<p>You can find it <a href="https://github.com/Tomasuh/various/blob/master/pattern.py">here</a>.</p>
+<hr>
 
-<p>Usage:</p>
+<h2>Level05</h2>
 
-<p><img src="/images/patternhelp.png" alt="fisk"></p>
+<hr>
 
-<p>Example commands and their output:</p>
+<h2>Level06</h2>
 
-<p><img src="/images/pattern1.py.png" alt="fisk"></p>
+<hr>
 
-<p>Pretty straightforward usage, open an issue at <a href="https://github.com/Tomasuh/various">github</a> if you find any problems.
-Improvements are also welcome.</p>
+<h2>Level07</h2>
+
+<hr>
 
 </div>
 
