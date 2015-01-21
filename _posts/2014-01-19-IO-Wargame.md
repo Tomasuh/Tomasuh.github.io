@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "IO Wargame"
+title: "IO | a wargame @ io.smashthestack.org - solutions level 1-?"
 date: 2015-01-19
 comments: true
 categories:
 ---
 
-
+A wargame consisting of challenges associated with reverse engineering and misc.
 
 ##Level01
 
