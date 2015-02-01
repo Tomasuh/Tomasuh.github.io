@@ -26,7 +26,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 Save the code inte a file with a firstline of `eval = print;`
 
-The from the terminal call: `evil.js | indent`
+The from the terminal call: `js evil.js | indent`
 Indent is a nice tool in linux used to indent and make the code readable, it's made for C but works allright for languages with a similar syntax.
 
 Output:
@@ -57,9 +57,9 @@ if (((ua.indexOf ("msie") != -1 && ua.indexOf ("opera") == -1
 
 ```
 
-You can do this everywhere you have a javascript interpreter but the shell offers simplicity and effectiveness for us who aren't web devs.
+You can do this anywhere you have a javascript interpreter but the shell offers simplicity and effectiveness for us who aren't web devs.
 
-As for the code analysis we see that it creates an iframe and appends it to the body. The link are down but you may 
+As for the code analysis we see that it creates an iframe and appends it to the body. The link are down but you may assume it was an exploitkit, deface page or similar.
 
 ##jsunpackn.py
 >[jsunpack-n](https://code.google.com/p/jsunpack-n/) emulates browser functionality when visiting a URL. It's purpose is to detect exploits that target browser and browser plug-in vulnerabilities. It accepts many different types of input:
