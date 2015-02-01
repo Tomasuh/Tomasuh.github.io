@@ -181,6 +181,28 @@ Welcome LOoCy5PbKi63qXTh
 
 <hr>
 
+<p>A basic overflow.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">.text:080483E1 mov     [esp+4], eax                    ; src, argv[1]
+.text:080483E5 lea     eax, [ebp+overFlowableBuff]
+.text:080483EB mov     [esp], eax                      ; dest
+.text:080483EE call    _strcpy                         ; strcpy(overFlowableBuff, argv[1])
+</code></pre></div>
+<p>As overFlowableBuff is a local variable the saved return adress are overflowable as it is located further down the stack.</p>
+
+<p>So lets grab that offset with <a href="http://tomasuh.github.io/2015/01/17/Pattern-create-and-offset.html">Pattern.py</a>. </p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tomasuh@crunch:~/programming/pentest/io<span class="nv">$ </span>pattern.py -pc 400
+Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Ai5Ai6Ai7Ai8Ai9Aj0Aj1Aj2Aj3Aj4Aj5Aj6Aj7Aj8Aj9Ak0Ak1Ak2Ak3Ak4Ak5Ak6Ak7Ak8Ak9Al0Al1Al2Al3Al4Al5Al6Al7Al8Al9Am0Am1Am2Am3Am4Am5Am6Am7Am8Am9An0An1An2A
+</code></pre></div>
+<p>retn will pop 0x37654136 into EIP as shown here:</p>
+
+<p><img src="/images/level5Stack.png" alt="Stack"></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tomasuh@crunch:~/programming/pentest/io<span class="nv">$ </span>pattern.py -pc <span class="m">400</span> -po 0x37654136 -hl
+Offset to pattern: 140
+</code></pre></div>
+<p>So lets craft our exploit with a execve(/bin/sh) shellcode.</p>
+
+<p>This shit ain&#39;t done yet.</p>
+
 <h2>Level06</h2>
 
 <hr>
