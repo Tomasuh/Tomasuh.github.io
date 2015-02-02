@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Javascript malware | Checking it out with Spidermonkey and jsunpackn.py"
+title: "Javascript malware | Checking it out with Spidermonkey and jsunpack-n"
 date: 2015-02-01
 comments: true
 categories:
@@ -26,7 +26,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 Save the code inte a file with a firstline of `eval = print;`
 
-The from the terminal call: `js evil.js | indent`
+Then from the terminal call: `js evil.js | indent`
 Indent is a nice tool in linux used to indent and make the code readable, it's made for C but works allright for languages with a similar syntax.
 
 Output:
@@ -61,7 +61,7 @@ You can do this anywhere you have a javascript interpreter but the shell offers 
 
 As for the code analysis we see that it creates an iframe and appends it to the body. The link are down but you may assume it was an exploitkit, deface page or similar.
 
-##jsunpackn.py
+##jsunpack-n
 >[jsunpack-n](https://code.google.com/p/jsunpack-n/) emulates browser functionality when visiting a URL. It's purpose is to detect exploits that target browser and browser plug-in vulnerabilities. It accepts many different types of input:
 
 >* PDF files - samples/sample-pdf.file

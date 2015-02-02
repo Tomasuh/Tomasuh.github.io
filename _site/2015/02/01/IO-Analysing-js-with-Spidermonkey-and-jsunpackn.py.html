@@ -7,7 +7,7 @@
 <meta name="keywords" content="">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript malware | Checking it out with Spidermonkey and jsunpackn.py &#8211; ">
+<meta property="og:title" content="Javascript malware | Checking it out with Spidermonkey and jsunpack-n &#8211; ">
 <meta property="og:description" content="Tomsonsec">
 <meta property="og:url" content="http://tomasuh.github.io//2015/02/01/IO-Analysing-js-with-Spidermonkey-and-jsunpackn.py.html">
 <meta property="og:site_name" content="">
@@ -45,7 +45,7 @@
     <p class="intro">
       Security oriented blog
     </p>
-  <h2>Javascript malware | Checking it out with Spidermonkey and jsunpackn.py</h2>
+  <h2>Javascript malware | Checking it out with Spidermonkey and jsunpack-n</h2>
 <p class="meta">01 Feb 2015</p>
 
 <div class="post">
@@ -73,7 +73,7 @@ Lets have a very basic example of dealing with obfuscated code being called by e
 </code></pre></div>
 <p>Save the code inte a file with a firstline of <code>eval = print;</code></p>
 
-<p>The from the terminal call: <code>js evil.js | indent</code>
+<p>Then from the terminal call: <code>js evil.js | indent</code>
 Indent is a nice tool in linux used to indent and make the code readable, it&#39;s made for C but works allright for languages with a similar syntax.</p>
 
 <p>Output:</p>
@@ -103,7 +103,7 @@ Indent is a nice tool in linux used to indent and make the code readable, it&#39
 
 <p>As for the code analysis we see that it creates an iframe and appends it to the body. The link are down but you may assume it was an exploitkit, deface page or similar.</p>
 
-<h2>jsunpackn.py</h2>
+<h2>jsunpack-n</h2>
 
 <blockquote>
 <p><a href="https://code.google.com/p/jsunpack-n/">jsunpack-n</a> emulates browser functionality when visiting a URL. It&#39;s purpose is to detect exploits that target browser and browser plug-in vulnerabilities. It accepts many different types of input:</p>
