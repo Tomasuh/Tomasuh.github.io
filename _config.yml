@@ -3,7 +3,7 @@ name: Tomsonsec
 markdown: Redcarpet
 highlighter: pygments
 #url: http://0.0.0.0:4000 #domain
-url: http://tomasuh.github.io
+url: //tomasuh.github.io
 paginate: 8
 description:     Tomsonsec 
 intro:	Security oriented blog
