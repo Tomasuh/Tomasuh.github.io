@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/tomasuh
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tomasuh.github.io
+  * I am tomasuh (https://keybase.io/tomasuh) on keybase.
+  * I have a public key with fingerprint 108F 5EEB F593 D702 7F20  8544 130A D86F BDFA A62F
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "108f5eebf593d7027f208544130ad86fbdfaa62f",
+            "host": "keybase.io",
+            "key_id": "130ad86fbdfaa62f",
+            "kid": "0101e0399a848d540f35a1135664372ff4f1e49f821eca6f742a8edc573945b2b6b50a",
+            "uid": "269c2b6d4ce06b6c3209391d55395619",
+            "username": "tomasuh"
+        },
+        "service": {
+            "hostname": "tomasuh.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1432975871,
+    "expire_in": 157680000,
+    "prev": "8fb2db71067f061bce4fa3454fb2c958e29473ede62dc07cf4ecee2ac82afac2",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.8
+Comment: https://keybase.io/crypto
+
+yMM0AnicZZJ7UFR1FMd3g0zXGF46yQxGXsWYILjvx67GDrQ4yAzkZO6Uj+0+fj/2
+LrB33b27PG1MymAYgZCyiZgwGoURKMzSKHBUQHMbM9wGRgWmoUGJJNeKGSim7qX6
+o+n3z29+3/M9n/M7Z85gVITBZIw3jSn9iycyjMELNr/hBbnCUIkIilSOmCuRIrB8
+QdldCLwer+xWETOCoSykABAgxRESg+IMxFGWIkmMQHmJpaEgQZ6ncYikIU7Fp2do
+GIH3gXRZ0TTt4ZAlnfN/f9FyAMVQDKAEx/EsyUoUiUKC4jGMoGiaJBgcQhJigOQg
+i2NA5GnIkDjPAkmkGIIjKQEXaIFCeQ3nX8bhNCdqmkSKAKUFWiRwlCM4TKIogqNo
+jNONPuB18yVAc6tKCe/zO5EDaYgmBmQR6BPQG/mvIb1QVp1+4e+ePF5FVUSlWAs7
+VdXjM+vparlH95cCwfEPySHIbkmbpZYRAF6frLgRM6Y5RVXW0RhJ4BxDsQyWhoAy
+j+wFDll3UAzNotrR64CAhmShgEsCg6E0A1EaE0RAQp4gKVLTRY5iAc6RDAEkQOOS
+iDIiJIEIAM6LLM5DXsQRvbf9bgUxk9o3+UIN6ZML3bzq9wLkwMULeyINRpNhxcMP
+6dtgMK2K+XdHZtbEGD7Y+2no+4qGld3lKcOZ9cY3MzatFLhNzolrkwt9aic2kjra
+sHHDXLuhLUXc8sj5Y6PPkD9OEFSicSn7zyra59qVfCph2/2mkz2/1zEz2dWf/ZSb
+APv7DjufqrpiuxFMPRaVvobzxletSG3PPEgh61N7d7A5ruv72mnyzuTj72Hl+R1N
+t/Jqw3sGaHm9mrsYDKs1W/ctJbb88uR4YHB41P7lKzP3E4Blb0aNyRg4FJxrsMRf
+PXGm8u2cKUt38Vc9D6zdnvoH19tu59uzXZ4su61W7ixLf317YFfPoKHvxkZ/2+WX
+znZtuPJY0hNXj354fGmKjlw9VQobiVBbb21rTUfnt6lbLJe3flw2W3Tki/zZsJpY
+Z2FC7zRHT8dGJ5du+25+rDl8frjB3tp+qT8vWPKcs/+1JKf/3bU7m++evFX1SXye
+s2m8+mfbkm2mqHF6SDn0jYHKsQy8us5azTJDY0hr7g/hWni6a3vj4fK3TBHTg9Vx
+C8dDR5/e8ej85yNV1lP7g2/EjMS+fPdgC3ftzrrbbUz9zcxgxJnVBXB3KM5+L0Le
+mXxvbrgiZ7A5qpeezerIGivwv0+v3Z3wm6trwba5JSKOqzjdk/R8qHh+0To3Qsz2
+TvhtpsXNfwzZM+pepFOenYw86/3oXGx07a8urOCmdeRiXO+lcz6HeXyV6evGiYFi
+69BfsQeomQ==
+=p3We
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tomasuh
+
+==================================================================
+
