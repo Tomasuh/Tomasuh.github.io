@@ -14,7 +14,10 @@ Resources about the threat:
 * [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retefe)
 * [New version of Retefe Banking Trojan Uses EternalBlue](https://www.mysonicwall.com/sonicalert/searchresults.aspx?ev=article&id=1094)
 
-Historically there seems to be some variance of ways the malware has stored it's javascript payload. Some sources mentions self extracting ZIP files and other XOR data. The current version makes use of a 4 byte XOR key that is partially generated based on the scripts length, following along with the analysis below.
+Historically there seems to be some variance of ways the malware has stored it's javascript payload. Some sources mentions self extracting ZIP files and other XORing data. The current version makes use of a 4 byte XOR key that is partially generated based on the scripts length.
+The post [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retefe) from about two months back (2018-11-08) shows use of a one byte 
+XOR key which indicates that the threat actor has changed its code base after the release of that post.
+So hopefully can this post, besides being for my pleasure, shed some light on the current way the threat Retefe stores its payload.
 
 Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
 
@@ -52,6 +55,8 @@ The actions performed by the unpacker:
 * Extract and decode the script
 
 The sourcecode to do this is available in [this](https://github.com/Tomasuh/retefe_unpacker) github repo.
+
+Screenshots from above is based on the file `1a3f25f4067e50aa113dfd9349fc4bdcf346d2e589ed6b4cebbc0a33e9eea50d`.
 
 Recent hashes that it has been confirmed to work on:
 ```
