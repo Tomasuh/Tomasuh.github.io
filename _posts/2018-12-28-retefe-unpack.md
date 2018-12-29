@@ -14,10 +14,10 @@ Resources about the threat:
 * [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retefe)
 * [New version of Retefe Banking Trojan Uses EternalBlue](https://www.mysonicwall.com/sonicalert/searchresults.aspx?ev=article&id=1094)
 
-Historically there seems to be some variance of ways the malware has stored it's Javascript payload. Some sources mentions self extracting ZIP files and other XORed data. The current version makes use of a 4 byte XOR key which is partially generated based on the scripts length.
+Historically there seems to be some variance of ways the malware has stored it's Javascript payload. Some sources mentions self extracting ZIP files and other XORed data. The current version makes use of a 4 byte XOR key which is generated based on the scripts length and a few mathematical operations performed on it.
 The post [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retefe) from about two months back (2018-11-08) shows use of a one byte 
 XOR key which indicates that the threat actor has changed its code base after the release of that post.
-Hopefully can this post shed some light on the current way the threat Retefe stores its payload.
+This post can hopefully shed some light on the current way the threat Retefe stores its payload.
 
 Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
 
@@ -32,7 +32,7 @@ The copy instruction is part of a function that passes the address of this copie
 
 <div style="text-align:center"><img src="/images/retefe/decoder-setup.png" width="75%" height="75%"></div>
 
-The decoder function passes the buffer length and another int to a function that takes buffer length to the power of that int.
+The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int.
 Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
 <div style="text-align:center"><img src="/images/retefe/xor-key.png" width="75%" height="75%"></div>
@@ -41,8 +41,8 @@ Later on the decode operation is performed:
 
 <div style="text-align:center"><img src="/images/retefe/decoder-decode.png" width="60%" height="60%"></div>
 
-That the data actually becomes decoded can be verified by a debugger, watching the memory of the data buffer after the decoder function 
-has run:
+That the data actually becomes decoded can be verified by a debugger, watching the memory of the buffer after the decoder function 
+has ran:
 
 ![](/images/retefe/dbg.png)
 
@@ -50,7 +50,7 @@ With the above research its possible to write an unpacker.
 
 The actions performed by the unpacker:
 * Use yara rules to find buffer location buffer length, number of shifts, subtraction value and power to value of it.
-* Calculate the full RVA based on the buffer location as the extracted location is relative to the LEA instruction that references it
+* Calculate the buffer RVA based as the extracted location is relative to the LEA instruction that references it
 * Calculate XOR array based on values extracted with the help of the yara rules
 * Extract and decode the script
 
