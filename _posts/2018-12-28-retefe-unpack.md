@@ -32,7 +32,7 @@ The copy instruction is part of a function that passes the address of this copie
 
 <div style="text-align:center"><img src="/images/retefe/decoder-setup.png" width="75%" height="75%"></div>
 
-The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int`.
+The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int.
 Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
 <div style="text-align:center"><img src="/images/retefe/xor-key.png" width="75%" height="75%"></div>
@@ -41,7 +41,7 @@ Later on the decode operation is performed:
 
 <div style="text-align:center"><img src="/images/retefe/decoder-decode.png" width="60%" height="60%"></div>
 
-That the data actually becomes decoded can be verified by a debugger, watching the memory of the buffer after the decoder function 
+That the data actually becomes decoded can be verified with a debugger, watching the memory of the buffer after the decoder function 
 has ran:
 
 ![](/images/retefe/dbg.png)
