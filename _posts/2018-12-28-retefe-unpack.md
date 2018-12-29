@@ -18,25 +18,25 @@ Historically there seems to be some variance of ways the malware has stored it's
 
 Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
 
-![](/images/retefe/code-explored.png)
+<div style="text-align:center"><img src="/images/retefe/code-explored.png"></div>
 
 Browsing the `.data` segment with Binary Ninja shows a large segment of data whose top is referenced in a 
 copy instruction:
 
-![](/images/retefe/copy-instruction.png)
+<div style="text-align:center"><img src="/images/retefe/copy-instruction.png" width="75%" height="75%"></div>
 
 The copy instruction is part of a function that passes the address of this copied data as an argument to a decoding function together with the length of the buffer:
 
-![](/images/retefe/decoder-setup.png)
+<div style="text-align:center"><img src="/images/retefe/decoder-setup.png" width="75%" height="75%"></div>
 
 The decoder function passes the buffer length and another int to a function that takes buffer length to the power of that int.
 Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
-![](/images/retefe/xor-key.png)
+<div style="text-align:center"><img src="/images/retefe/xor-key.png" width="75%" height="75%"></div>
 
 Later on the decode operation is performed:
 
-![](/images/retefe/decoder-decode.png)
+<div style="text-align:center"><img src="/images/retefe/decoder-decode.png" width="75%" height="75%"></div>
 
 That the data actually becomes decoded can be verified by a debugger, watching the memory of the data buffer after the decoder function 
 has run:
