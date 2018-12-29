@@ -51,7 +51,7 @@ The actions performed by the unpacker:
 * Calculate XOR array based on values extracted with the help of the yara rules
 * Extract and decode the script
 
-The sourcecode to do this is available in the github repo [Retefe unpacker](https://github.com/Tomasuh/retefe_unpacker).
+The sourcecode to do this is available in [this](https://github.com/Tomasuh/retefe_unpacker) github repo.
 
 Recent hashes that it has been confirmed to work on:
 ```
