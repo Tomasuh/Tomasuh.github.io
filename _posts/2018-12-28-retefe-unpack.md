@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-This is a writeup on how to implement an unpacker for current version of the banking malware Retefe.
+This is a writeup on how to implement an unpacker for current version (at the time of publication) of the banking malware Retefe.
 
 Resources about the threat:
 * [Retefe banking Trojan leverages EternalBlue exploit in Swiss campaigns](https://www.proofpoint.com/us/threat-insight/post/retefe-banking-trojan-leverages-eternalblue-exploit-swiss-campaigns)
@@ -14,32 +14,34 @@ Resources about the threat:
 * [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retefe)
 * [New version of Retefe Banking Trojan Uses EternalBlue](https://www.mysonicwall.com/sonicalert/searchresults.aspx?ev=article&id=1094)
 
+Historically there seems to be some variance of ways the malware has stored it's javascript payload. Some sources mentions self extracting ZIP files and other XOR data. The current version makes use of a 4 byte XOR key that is partially generated based on the scripts length, following along with the analysis below.
+
 Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
 
-![](images/retefe/code-explored.png)
+![](/images/retefe/code-explored.png)
 
 Browsing the `.data` segment with Binary Ninja shows a large segment of data whose top is referenced in a 
 copy instruction:
 
-![](images/retefe/copy-instruction.png)
+![](/images/retefe/copy-instruction.png)
 
 The copy instruction is part of a function that passes the address of this copied data as an argument to a decoding function together with the length of the buffer:
 
-![](images/retefe/decoder-setup.png)
+![](/images/retefe/decoder-setup.png)
 
 The decoder function passes the buffer length and another int to a function that takes buffer length to the power of that int.
 Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
-![](images/retefe/xor-key.png)
+![](/images/retefe/xor-key.png)
 
 Later on the decode operation is performed:
 
-![](images/retefe/decoder-decode.png)
+![](/images/retefe/decoder-decode.png)
 
 That the data actually becomes decoded can be verified by a debugger, watching the memory of the data buffer after the decoder function 
 has run:
 
-![](images/retefe/dbg.png)
+![](/images/retefe/dbg.png)
 
 With the above research its possible to write an unpacker.
 
@@ -60,4 +62,4 @@ Recent hashes that it has been confirmed to work on:
 
 Example run:
 
-![](images/retefe/example-run.png)
+![](/images/retefe/example-run.png)
