@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-This is a writeup on how to implement an unpacker for current version (at the time of publication) of the banking malware Retefe.
+This is a writeup on how to implement an unpacker for current versions (at the time of publication) of the banking malware Retefe.
 
 Resources about the threat:
 * [Retefe banking Trojan leverages EternalBlue exploit in Swiss campaigns](https://www.proofpoint.com/us/threat-insight/post/retefe-banking-trojan-leverages-eternalblue-exploit-swiss-campaigns)
@@ -17,9 +17,9 @@ Resources about the threat:
 Historically there seems to be some variance of ways the malware has stored it's Javascript payload. Some sources mentions self extracting ZIP files and other XORed data. The current version makes use of a 4 byte XOR key which is generated based on the scripts length and a few mathematical operations performed on it.
 The post [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retefe) from about two months back (2018-11-08) shows use of a one byte 
 XOR key which indicates that the threat actor has changed its code base after the release of that post.
-This post can hopefully shed some light on the current way the threat Retefe stores its payload.
+This post is made with the intention to shed some light on the current way the threat Retefe stores its payload.
 
-Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
+Looking at the mapped binary image with IDA shows a large amount of unexplored data that is in the `.data` segment.
 
 <div style="text-align:center"><img src="/images/retefe/code-explored.png"></div>
 
@@ -32,7 +32,7 @@ The copy instruction is part of a function that passes the address of this copie
 
 <div style="text-align:center"><img src="/images/retefe/decoder-setup.png" width="75%" height="75%"></div>
 
-The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int.
+The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int`.
 Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
 <div style="text-align:center"><img src="/images/retefe/xor-key.png" width="75%" height="75%"></div>
