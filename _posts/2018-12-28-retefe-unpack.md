@@ -36,7 +36,7 @@ Then a a shift and subtraction is performed. The result is the XOR key that is u
 
 Later on the decode operation is performed:
 
-<div style="text-align:center"><img src="/images/retefe/decoder-decode.png" width="75%" height="75%"></div>
+<div style="text-align:center"><img src="/images/retefe/decoder-decode.png" width="60%" height="60%"></div>
 
 That the data actually becomes decoded can be verified by a debugger, watching the memory of the data buffer after the decoder function 
 has run:
