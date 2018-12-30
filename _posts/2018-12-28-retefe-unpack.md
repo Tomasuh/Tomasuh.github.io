@@ -50,13 +50,11 @@ With the above research its possible to write an unpacker.
 
 The actions performed by the unpacker:
 * Use yara rules to find buffer location buffer length, number of shifts, subtraction value and power to value of it.
-* Calculate the buffer RVA based as the extracted location is relative to the LEA instruction that references it
+* Calculate the buffer RVA as the extracted location is relative to the LEA instruction that references it
 * Calculate XOR array based on values extracted with the help of the yara rules
 * Extract and decode the script
 
 The sourcecode to do this is available in [this](https://github.com/Tomasuh/retefe_unpacker) github repo.
-
-Screenshots from above is based on the file `1a3f25f4067e50aa113dfd9349fc4bdcf346d2e589ed6b4cebbc0a33e9eea50d`.
 
 Recent hashes that it has been confirmed to work on:
 ```
@@ -68,3 +66,5 @@ Recent hashes that it has been confirmed to work on:
 Example run:
 
 ![](/images/retefe/example-run.png)
+
+Screenshots in this post are based on the file `1a3f25f4067e50aa113dfd9349fc4bdcf346d2e589ed6b4cebbc0a33e9eea50d`.
