@@ -67,4 +67,4 @@ Example run:
 
 ![](/images/retefe/example-run.png)
 
-Screenshots in this post are based on the file `1a3f25f4067e50aa113dfd9349fc4bdcf346d2e589ed6b4cebbc0a33e9eea50d`.
+Screenshots in this post are based on sample `1a3f25f4067e50aa113dfd9349fc4bdcf346d2e589ed6b4cebbc0a33e9eea50d`.
