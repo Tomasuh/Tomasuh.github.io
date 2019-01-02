@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-This is a writeup on how to implement an unpacker for current versions (at the time of publication) of the banking malware Retefe.
+This is a writeup on the packing technique used by current versions (at the time of publication) of the banking malware Retefe.
 
 Resources about the threat:
 * [Retefe banking Trojan leverages EternalBlue exploit in Swiss campaigns](https://www.proofpoint.com/us/threat-insight/post/retefe-banking-trojan-leverages-eternalblue-exploit-swiss-campaigns)
