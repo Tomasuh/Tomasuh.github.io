@@ -7,6 +7,7 @@ categories:
 ---
 
 This is a writeup on the packing technique used by current versions (at the time of publication) of the banking malware Retefe.
+An unpacker were created, skip to the bottom for a github link to it.
 
 Resources about the threat:
 * [Retefe banking Trojan leverages EternalBlue exploit in Swiss campaigns](https://www.proofpoint.com/us/threat-insight/post/retefe-banking-trojan-leverages-eternalblue-exploit-swiss-campaigns)
