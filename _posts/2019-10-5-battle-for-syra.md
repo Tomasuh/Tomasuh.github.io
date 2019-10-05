@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-After finishing the book [The Battle For Syria: International Rivalry In The New Middle East](https://www.goodreads.com/book/show/29434922-the-battle-for-syria) written by **Christopher Phillips** I will here provide a few comments on the book.
+After reading [The Battle For Syria: International Rivalry In The New Middle East](https://www.goodreads.com/book/show/29434922-the-battle-for-syria) written by **Christopher Phillips** I will here provide a few comments on the book.
 
 The purpose of the book is to portray the involvement of external organisations and countries in the Syrian civil war and the influence (or lack of) they have had in the conflict.
 
