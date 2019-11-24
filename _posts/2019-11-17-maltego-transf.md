@@ -37,4 +37,4 @@ Another carding websites relation, starting point `cvvfresh[.]bazar`:
 
 Both IPs are in close range to each other, same ISP, `MivoCloud`, located in Moldovia, very likely that the same actor is behind all three domains.
 
-Hopefully you as a reader has got an idea of the possibilities and limitations of the transform.
+Hopefully you as a reader has gotten an idea of the possibilities and limitations of the transform.
