@@ -21,7 +21,7 @@ exploration:
 
 ![](/images/2019-11-17_buybest.png) 
 
-The observation of the IPs `83.217.11.80`, `92.63.101.2` and `188.227.18.89` shows how blockchain relations can uncover new relations which in best-case scenarios can act as new entry points during investigations where tracking and identification of actors plays a part.
+The observation of the IPs `83.217.11.80`, `92.63.101.2` and `188.227.18.89` shows how blockchain relations can uncover new relations which in best-case scenarios can act as new entry points during investigations where tracking and identification of actors plays a part. Another use-case is to add the uncovered indicators to be monitored for in monitored environments.
 
 A large number of domains are also observed which might have similar use-case during investigations.
 
