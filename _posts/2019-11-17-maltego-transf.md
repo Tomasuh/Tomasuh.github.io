@@ -37,4 +37,4 @@ Another carding websites relation, starting point `cvvfresh[.]bazar`:
 
 Both IPs are in close range to each other, same ISP, `MivoCloud`, located in Moldovia, very likely that the same actor is behind all three domains.
 
-The aim for this post was to show how to in an effective way explore the domain and IP relations of the domain systems for Namecoin and Emercoin which I hope was fulfilled.
+Hopefully you as a reader has got an idea of the possibilities and limitations of the transform.
