@@ -28,11 +28,11 @@ Taking one example from Kevin Perlows paper, Fig 4, where `healthshop[.]bit` is 
 
 ![](/images/2019-11-24_healthshop.png)
 
-Compared to the graph in the paper we are missing the correlation point of when the output Namecoin address used to update a domain is used as an input address for a change on another domain. Adding support for it would be a valuable update to the transform.
+Compared to the graph in the paper we are missing the correlation point of when the output Namecoin address is used as an input address to update a change on another domain. Adding support for it would be a valuable update.
 
 Another carding websites relation, starting point `cvvfresh[.]bazar`:
 
-![](/images/2019.11-24_cvvfresh.png)
+![](/images/2019.11-24_fresh.png)
 
 Both IPs are in close range to each other, same ISP, `MivoCloud`, located in Moldovia, very likely that the same actor is behind all three domains.
 
