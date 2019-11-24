@@ -21,15 +21,15 @@ exploration:
 
 ![](/images/2019-11-17_buybest.png) 
 
-The observation of the IPs `83.217.11.80`, `92.63.101.2` and `188.227.18.89` shows how blockchain relations can uncover new relations which in best-case scenarios can act as new entry points during investigations where tracking and identification of actors plays a part. Another use-case is to add the uncovered indicators to be monitored for in monitored environments.
+The observation of the IPs `83.217.11.80`, `92.63.101.2` and `188.227.18.89` shows how blockchain relations can uncover new relations which in best-case scenarios can act as new entry points during investigations where tracking and identification of actors plays a part. Another use-case is to add the uncovered indicators to be monitored for in targeted environments.
 
 A large number of domains are also observed which might have similar use-case during investigations.
 
-Taking one example from Kevin Perlows paper, Fig 4, where `healthshop[.]bit` is used as entry point:
+Taking another example, this time from Kevin Perlows paper, Fig 4, where `healthshop[.]bit` is used as entry point:
 
 ![](/images/2019-11-24_healthshop.png)
 
-Compared to the graph in the paper we are missing the correlation point of when the output Namecoin address is used as an input address to update a change on another domain. Adding support for it would be a valuable update.
+Compared to the graph in the paper we are missing the correlation point of when the output Namecoin address is used as an input address to update the state of another domain. Adding support for it would be a valuable improvement.
 
 Another carding websites relation, starting point `cvvfresh[.]bazar`:
 
@@ -37,4 +37,4 @@ Another carding websites relation, starting point `cvvfresh[.]bazar`:
 
 Both IPs are in close range to each other, same ISP, `MivoCloud`, located in Moldovia, very likely that the same actor is behind all three domains.
 
-The aim for this post was to show how to in an effective way explore the domain and IP relations of the domain systems for Namecoin and Emercoin.
+The aim for this post was to show how to in an effective way explore the domain and IP relations of the domain systems for Namecoin and Emercoin which I hope was fulfilled.
