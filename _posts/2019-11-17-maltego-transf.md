@@ -32,7 +32,7 @@ Compared to the graph in the paper we are missing the correlation point of when 
 
 Another carding websites relation, starting point `cvvfresh[.]bazar`:
 
-![](/images/2019.11-24_fresh.png)
+![](/images/2019-11-24_fresh.png)
 
 Both IPs are in close range to each other, same ISP, `MivoCloud`, located in Moldovia, very likely that the same actor is behind all three domains.
 
